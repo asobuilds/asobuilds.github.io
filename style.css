@@ -1,0 +1,249 @@
+/* ===== RESET & BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f0f2f5;
+    color: #1a1a2e;
+    line-height: 1.7;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ===== PROFILE PICTURE ===== */
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #0a58ca;
+    display: block;
+    margin: 0 auto 15px;
+    box-shadow: 0 4px 12px rgba(10, 88, 202, 0.2);
+}
+
+/* ===== HEADER ===== */
+header {
+    text-align: center;
+    padding: 30px 0 30px;
+    border-bottom: 3px solid #0a58ca;
+}
+
+header h1 {
+    font-size: 2.8rem;
+    color: #0a2540;
+    letter-spacing: -1px;
+}
+
+header .title {
+    font-size: 1.2rem;
+    color: #0a58ca;
+    font-weight: 600;
+    margin: 6px 0 16px;
+}
+
+nav a {
+    margin: 0 14px;
+    color: #0a2540;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: #0a58ca;
+    text-decoration: underline;
+}
+
+/* ===== SECTIONS ===== */
+section {
+    background: white;
+    padding: 30px 35px;
+    margin: 30px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+section h2 {
+    color: #0a2540;
+    font-size: 1.8rem;
+    margin-bottom: 18px;
+    border-bottom: 3px solid #0a58ca;
+    padding-bottom: 8px;
+}
+
+/* ===== ABOUT ===== */
+#about p {
+    font-size: 1.05rem;
+    color: #1e293b;
+}
+
+/* ===== PROJECTS ===== */
+.project {
+    background: #f8fafc;
+    padding: 20px 22px;
+    margin-bottom: 22px;
+    border-left: 5px solid #0a58ca;
+    border-radius: 6px;
+}
+
+.project h3 {
+    color: #0a2540;
+    font-size: 1.3rem;
+    margin-bottom: 6px;
+}
+
+.project p {
+    margin: 6px 0;
+    color: #334155;
+}
+
+.project a {
+    display: inline-block;
+    margin-top: 8px;
+    color: white;
+    background: #0a58ca;
+    padding: 8px 18px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+}
+
+.project a:hover {
+    background: #084298;
+}
+
+/* ===== SKILLS ===== */
+ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 4px 0;
+}
+
+ul li {
+    background: #0a58ca;
+    color: white;
+    padding: 8px 22px;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* ===== CONTACT ===== */
+.contact-links p {
+    margin: 8px 0;
+}
+
+.contact-links a {
+    color: #0a58ca;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.contact-links a:hover {
+    text-decoration: underline;
+}
+
+.coming-soon {
+    color: #94a3b8;
+    font-style: italic;
+}
+
+/* ===== CONTACT FORM ===== */
+form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+form label {
+    font-weight: 600;
+    color: #0a2540;
+    font-size: 0.95rem;
+}
+
+form input,
+form textarea {
+    padding: 12px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    background: #f8fafc;
+    transition: border 0.2s;
+}
+
+form input:focus,
+form textarea:focus {
+    outline: none;
+    border-color: #0a58ca;
+    background: white;
+}
+
+form button {
+    background: #0a58ca;
+    color: white;
+    border: none;
+    padding: 14px 24px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.2s;
+    align-self: flex-start;
+}
+
+form button:hover {
+    background: #084298;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px 0;
+    color: #64748b;
+    border-top: 1px solid #e2e8f0;
+}
+
+/* ===== RESPONSIVE (Mobile Friendly) ===== */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 6px 10px;
+    }
+
+    ul li {
+        font-size: 0.85rem;
+        padding: 6px 16px;
+    }
+
+    form button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .profile-img {
+        width: 120px;
+        height: 120px;
+    }
+}
