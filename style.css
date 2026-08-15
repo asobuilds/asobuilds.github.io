@@ -11,12 +11,100 @@ html {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #f0f2f5;
+    background: #f0f2f5;
     color: #1a1a2e;
     line-height: 1.7;
     max-width: 860px;
     margin: 0 auto;
     padding: 20px;
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ===== BACKGROUND GRADIENT MESH ===== */
+body::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+        radial-gradient(ellipse at 20% 50%, rgba(10, 88, 202, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(10, 88, 202, 0.04) 0%, transparent 40%),
+        radial-gradient(ellipse at 50% 80%, rgba(10, 88, 202, 0.03) 0%, transparent 50%);
+    z-index: -2;
+    animation: meshMove 20s ease-in-out infinite alternate;
+}
+
+@keyframes meshMove {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    100% {
+        transform: translate(2%, 2%) rotate(2deg);
+    }
+}
+
+/* ===== FLOATING SHAPES ===== */
+.shape {
+    position: fixed;
+    border-radius: 50%;
+    opacity: 0.04;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.shape-1 {
+    width: 300px;
+    height: 300px;
+    background: #0a58ca;
+    top: -100px;
+    right: -100px;
+    animation: floatShape 25s ease-in-out infinite;
+}
+
+.shape-2 {
+    width: 200px;
+    height: 200px;
+    background: #0a58ca;
+    bottom: 50px;
+    left: -80px;
+    animation: floatShape 30s ease-in-out infinite reverse;
+}
+
+.shape-3 {
+    width: 150px;
+    height: 150px;
+    background: #0a58ca;
+    top: 40%;
+    right: -60px;
+    animation: floatShape 20s ease-in-out infinite 2s;
+}
+
+.shape-4 {
+    width: 100px;
+    height: 100px;
+    background: #0a58ca;
+    bottom: 30%;
+    right: 5%;
+    animation: floatShape 22s ease-in-out infinite 4s;
+}
+
+@keyframes floatShape {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    25% {
+        transform: translate(30px, -40px) scale(1.1);
+    }
+    50% {
+        transform: translate(-20px, 20px) scale(0.9);
+    }
+    75% {
+        transform: translate(40px, 30px) scale(1.05);
+    }
 }
 
 /* ===== SKIP TO CONTENT (Accessibility) ===== */
@@ -84,10 +172,14 @@ header {
     text-align: center;
     padding: 30px 0 25px;
     border-bottom: 3px solid #0a58ca;
-    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-radius: 12px;
     margin-bottom: 30px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    position: relative;
+    z-index: 1;
 }
 
 .header-content {
@@ -122,7 +214,7 @@ header .title {
 /* ===== STATUS BADGE ===== */
 .status-badge {
     display: inline-block;
-    background: #0a58ca;
+    background: linear-gradient(135deg, #0a58ca, #084298);
     color: white;
     padding: 6px 20px;
     border-radius: 30px;
@@ -130,6 +222,7 @@ header .title {
     font-weight: 600;
     margin-bottom: 15px;
     animation: pulse 2s ease-in-out infinite;
+    box-shadow: 0 2px 10px rgba(10, 88, 202, 0.3);
 }
 
 @keyframes pulse {
@@ -157,16 +250,22 @@ nav a:hover {
 
 /* ===== SECTIONS ===== */
 section {
-    background: white;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     padding: 30px 35px;
     margin: 30px 0;
     border-radius: 12px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-    transition: box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease, transform 0.3s ease, background 0.3s ease;
+    position: relative;
+    z-index: 1;
+    border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 section:hover {
     box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+    background: rgba(255, 255, 255, 0.96);
 }
 
 section h2 {
@@ -186,7 +285,9 @@ section h2 {
 
 /* ===== NOW SECTION ===== */
 .now-section {
-    background: #f8fafc;
+    background: rgba(248, 250, 252, 0.8);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     padding: 20px 24px;
     border-radius: 8px;
     margin: 20px 0 25px;
@@ -284,7 +385,9 @@ section h2 {
 
 /* ===== FEATURED PROJECT ===== */
 .featured-project {
-    background: linear-gradient(135deg, #f8fafc, #eef2ff);
+    background: linear-gradient(135deg, rgba(248, 250, 252, 0.9), rgba(238, 242, 255, 0.9));
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     border-radius: 12px;
     padding: 2px;
     border: 1px solid #e2e8f0;
@@ -328,7 +431,9 @@ section h2 {
 
 /* ===== PROJECT CARDS ===== */
 .project-card {
-    background: #f8fafc;
+    background: rgba(248, 250, 252, 0.9);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     border-radius: 10px;
     margin-bottom: 22px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -414,6 +519,7 @@ ul li {
     font-size: 0.95rem;
     font-weight: 500;
     transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(10, 88, 202, 0.15);
 }
 
 ul li:hover {
@@ -432,7 +538,9 @@ ul li:hover {
 .process-step {
     text-align: center;
     padding: 20px 15px;
-    background: #f8fafc;
+    background: rgba(248, 250, 252, 0.8);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     border-radius: 10px;
     transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -525,8 +633,10 @@ form textarea {
     border-radius: 8px;
     font-size: 1rem;
     font-family: inherit;
-    background: #f8fafc;
-    transition: border 0.3s, box-shadow 0.3s;
+    background: rgba(248, 250, 252, 0.8);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: border 0.3s, box-shadow 0.3s, background 0.3s;
 }
 
 form input:focus,
@@ -538,7 +648,7 @@ form textarea:focus {
 }
 
 form button {
-    background: #0a58ca;
+    background: linear-gradient(135deg, #0a58ca, #084298);
     color: white;
     border: none;
     padding: 14px 28px;
@@ -546,13 +656,15 @@ form button {
     font-weight: 600;
     border-radius: 30px;
     cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
     align-self: flex-start;
+    box-shadow: 0 2px 10px rgba(10, 88, 202, 0.3);
 }
 
 form button:hover {
-    background: #084298;
+    background: linear-gradient(135deg, #084298, #062b6b);
     transform: scale(1.02);
+    box-shadow: 0 4px 16px rgba(10, 88, 202, 0.4);
 }
 
 /* ===== FOOTER ===== */
@@ -612,6 +724,10 @@ footer {
 
     .featured-content {
         padding: 20px;
+    }
+
+    .shape {
+        display: none;
     }
 }
 
