@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
             let delay = isDeleting ? 50 : 100;
             
             if (!isDeleting && charIndex === currentPhrase.length) {
-                delay = 2000; // Pause at end of phrase
+                delay = 2000;
                 isDeleting = true;
             } else if (isDeleting && charIndex === 0) {
                 isDeleting = false;
@@ -49,11 +49,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-// ===== SMOOTH SCROLLING (Fallback) =====
+// ===== SMOOTH SCROLLING (Fallback for older browsers) =====
 document.querySelectorAll('nav a').forEach(link => {
     link.addEventListener('click', function(e) {
         const targetId = this.getAttribute('href');
-        if (targetId.startsWith('#')) {
+        if (targetId && targetId.startsWith('#')) {
             e.preventDefault();
             const target = document.querySelector(targetId);
             if (target) {
