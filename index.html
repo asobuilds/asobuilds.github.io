@@ -9,6 +9,29 @@
 </head>
 <body>
 
+    <!-- ===== LOADING SCREEN ===== -->
+    <div id="loader">
+        <div id="loader-content">
+            <div id="loader-percent">0%</div>
+            <div id="loader-bar-track">
+                <div id="loader-bar-fill"></div>
+            </div>
+            <div id="loader-status">Initializing...</div>
+        </div>
+    </div>
+
+    <!-- ===== STATUS BAR ===== -->
+    <div id="status-bar">
+        <span id="status-left">🖥️ agene@asobuilds.dev</span>
+        <span id="status-right">
+            <span id="status-time"></span>
+            <span id="status-date"></span>
+        </span>
+    </div>
+
+    <!-- ===== DYNAMIC CANVAS BACKGROUND ===== -->
+    <canvas id="bg-canvas"></canvas>
+
     <!-- ===== FLOATING BACKGROUND SHAPES ===== -->
     <div class="shape shape-1"></div>
     <div class="shape shape-2"></div>
@@ -283,6 +306,23 @@
     <footer>
         <p>&copy; 2026 Agene S. Okoh. Built with ❤️</p>
     </footer>
+
+    <!-- ===== TERMINAL OVERLAY ===== -->
+    <div id="terminal-overlay">
+        <div id="terminal-header">
+            <span>📟 Terminal — asobuilds.dev</span>
+            <button id="terminal-close">✕</button>
+        </div>
+        <div id="terminal-output">
+            <div class="terminal-line">> Welcome to agene@asobuilds.dev</div>
+            <div class="terminal-line">> Type 'help' for available commands</div>
+            <div class="terminal-line">></div>
+        </div>
+        <div id="terminal-input-wrap">
+            <span class="terminal-prompt">$</span>
+            <input type="text" id="terminal-input" autofocus placeholder="Enter command..." />
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
